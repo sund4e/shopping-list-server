@@ -1,10 +1,16 @@
 import { BaseContext } from 'koa';
 import Koa from 'koa';
+import Router from 'koa-router';
 
 const app = new Koa();
+const router = new Router();
 
-app.use(async (ctx: BaseContext) => {
-  ctx.body = 'Hello there stranger!';
+router.get('/', (ctx: BaseContext) => {
+  ctx.body = {
+    data: 'Hello there stranger!'
+  };
 });
 
-app.listen(9000);
+app.use(router.routes());
+
+export default app;

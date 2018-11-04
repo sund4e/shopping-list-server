@@ -7,20 +7,28 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start": "ts-node-dev src/app.ts",
+    "start": "ts-node-dev src/server.ts",
     "lint": "tslint -p tsconfig.json",
+    "test": "jest --watch"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.9",
     "@types/koa": "^2.0.46",
+    "@types/koa-router": "^7.0.32",
+    "@types/node": "^10.12.2",
+    "@types/supertest": "^2.0.6",
+    "jest": "^23.6.0",
     "prettier": "^1.14.3",
+    "supertest": "^3.3.0",
+    "ts-jest": "^23.10.4",
     "ts-node-dev": "^1.0.0-pre.30",
     "tslint": "^5.11.0",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.1.6"
   },
   "dependencies": {
-    "@types/node": "^10.12.2",
     "koa": "^2.6.1",
+    "koa-router": "^7.4.0",
     "ts-node": "^7.0.1"
   }
 }
