@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    build: .
+    environment:
+      - APP_SERVER_PORT=${APP_SERVER_PORT}
+      - DATABASE_URL=postgres://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@database/${DATABASE_NAME}
+    ports:
+      - ${APP_SERVER_PORT}:${APP_SERVER_PORT} # HOST - CONTAINER
+    volumes:
+      - ./src:/app/src
+    depends_on:
+      - database
+  database:
+    image: postgres:9.6.2-alpine
+    volumes:
+      - ./dist/postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+    ports:
+      - ${DATABASE_PORT}:5432
