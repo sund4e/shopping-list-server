@@ -21,3 +21,7 @@ services:
       POSTGRES_DB: ${DATABASE_NAME}
     ports:
       - ${DATABASE_PORT}:5432
+  database-test:
+    image: postgres:9.6.2-alpine
+    ports:
+      - ${TEST_DB_PORT}:5432

@@ -10,7 +10,8 @@
     "start": "ts-node-dev src/server.ts",
     "lint": "tslint -p tsconfig.json",
     "test": "jest --watch",
-    "migrate": "knex migrate:latest"
+    "migrate": "DATABASE_URL=postgres://user:password@localhost:8001/shoppingList knex migrate:latest",
+    "migrate:test": "DATABASE_URL=postgres://postgres@localhost:9000/postgres knex migrate:latest"
   },
   "devDependencies": {
     "@types/dotenv": "^4.0.3",
