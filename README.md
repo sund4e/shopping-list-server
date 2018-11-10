@@ -8,3 +8,6 @@ client - react app
 
 ##Run service in shell
 `docker-compose run <service> bash`
+
+##Run migrations:
+`DATABASE_URL=postgres://user:password@localhost:8001/shoppingList yarn migrate`
